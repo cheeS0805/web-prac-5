@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Звіт №5 — Web-технології та Web-дизайн</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 14pt;
+      line-height: 1.5;
+      background: #e0e0e0;
+      color: #000;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      padding: 20mm 25mm 20mm 30mm;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      page-break-after: always;
+    }
+
+    .title-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 257mm;
+    }
+
+    .title-page .ministry {
+      font-size: 14pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .title-page .dept {
+      font-style: italic;
+      font-size: 14pt;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .title-page .report-label {
+      margin-top: 60px;
+      font-size: 16pt;
+      font-weight: bold;
+    }
+
+    .title-page .course-label {
+      margin-top: 8px;
+      font-size: 14pt;
+    }
+
+    .title-page .student-block {
+      margin-top: 60px;
+      text-align: right;
+      width: 100%;
+      font-size: 14pt;
+      line-height: 2;
+    }
+
+    .title-page .student-name-block {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 4px;
+    }
+
+    .title-page .student-block .student-name {
+      border-bottom: 1px solid #000;
+      display: inline-block;
+      min-width: 480px;
+      text-align: center;
+    }
+
+    .title-page .student-block .student-hint {
+      font-style: italic;
+      font-size: 12pt;
+      text-align: center;
+      display: block;
+    }
+
+    .title-page .underline {
+      border-bottom: 1px solid #000;
+      display: inline-block;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .title-page .city {
+      margin-top: auto;
+      font-size: 14pt;
+    }
+
+    h3 {
+      font-size: 14pt;
+      font-weight: bold;
+      margin: 18px 0 8px;
+    }
+
+    .task-heading {
+      text-indent: 1.25cm;
+      text-align: justify;
+      margin: 16px 0 14px;
+      font-size: 14pt;
+    }
+
+    .task-heading em { font-weight: bold; font-style: italic; }
+
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 8.5pt;
+      line-height: 1.45;
+      overflow-x: auto;
+      margin: 6px 0 16px;
+      white-space: pre;
+    }
+
+    .kw  { color: #cba6f7; }
+    .ty  { color: #89dceb; }
+    .fn  { color: #89b4fa; }
+    .str { color: #a6e3a1; }
+    .cm  { color: #6c7086; font-style: italic; }
+    .num { color: #fab387; }
+
+    .figure { margin: 20px 0; text-align: center; }
+    .figure-caption { font-size: 13pt; margin-top: 8px; text-align: center; }
+    .diagram-box {
+      display: inline-block;
+      text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 16px 20px;
+      background: #fafafa;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 8.5pt;
+      line-height: 1.5;
+      white-space: pre;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ТИТУЛЬНА СТОРІНКА -->
+<div class="page">
+  <div class="title-page">
+    <div>
+      <div class="ministry">МІНІСТЕРСТВО ОСВІТИ ТА НАУКИ УКРАЇНИ</div>
+      <div class="ministry">ЧЕРКАСЬКИЙ ДЕРЖАВНИЙ БІЗНЕС-КОЛЕДЖ</div>
+    </div>
+    <div>
+      <div class="dept">Кафедра комп'ютерної інженерії та інформаційних технологій</div>
+      <div class="dept">Відділення інженерії програмного забезпечення</div>
+    </div>
+
+    <div class="report-label">Звіт з теми № &nbsp;&nbsp; 5 &nbsp;&nbsp;</div>
+    <div class="course-label">з курсу «Web-технології та Web-дизайн»</div>
+
+    <div class="student-block">
+      <div class="student-name-block">
+        <span class="student-name">Чернова Соня</span>
+      </div>
+      <div class="student-hint">ПІБ студентки</div>
+      <br/>
+      <div>студентки групи &nbsp;<span class="underline">&nbsp;2П-23&nbsp;</span></div>
+      <br/>
+      <div>номер у списку підгрупи &nbsp;<span class="underline">&nbsp;16&nbsp;</span></div>
+      <br/><br/>
+      <div>Викладач &nbsp;<span class="underline">&nbsp;Марченко С. В.&nbsp;</span></div>
+    </div>
+
+    <div class="city">Черкаси-2026</div>
+  </div>
+</div>
+
+<!-- ЗАВДАННЯ 1 -->
+<div class="page">
+  <p class="task-heading">
+    1. (<em>Розширення архітектури станом застосунку</em>) На основі реалізованого в
+    практичній роботі 04 клієнт-серверного вебзастосунку для керування записами
+    користувачів необхідно виконати його архітектурне доопрацювання, пов'язане з
+    явним введенням рівня керування станом інтерфейсу та даних.
+  </p>
+
+  <h3>1. Формалізація структури стану та чистий Редуктор</h3>
+<pre><span class="cm">// Імпорт типів із загального модуля типів</span>
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">User</span>, <span class="ty">PaginatedResponse</span> } <span class="kw">from</span> <span class="str">'../types'</span>;
+
+<span class="cm">// Метадані пагінації — повертаються сервером разом зі списком</span>
+<span class="kw">export interface</span> <span class="ty">PaginatedMeta</span> {
+  total: <span class="ty">number</span>; page: <span class="ty">number</span>; limit: <span class="ty">number</span>; totalPages: <span class="ty">number</span>;
+}
+
+<span class="cm">/** Єдине джерело істини — весь стан застосунку в одному об'єкті */</span>
+<span class="kw">export interface</span> <span class="ty">UsersState</span> {
+  data: {               <span class="cm">// Дані предметної області</span>
+    users: <span class="ty">User</span>[];
+    selectedUser: <span class="ty">User</span> | <span class="kw">null</span>;  <span class="cm">// Обраний для редагування запис</span>
+    meta: <span class="ty">PaginatedMeta</span>;          <span class="cm">// Пагінаційні метадані</span>
+  };
+  ui: {                 <span class="cm">// Параметри інтерфейсу (пошук, сортування, сторінка)</span>
+    search: <span class="ty">string</span>;
+    sortBy: <span class="ty">string</span>;
+    sortOrder: <span class="str">'asc'</span> | <span class="str">'desc'</span>;
+    page: <span class="ty">number</span>;
+  };
+  status: {             <span class="cm">// Службові прапорці стану HTTP-запиту</span>
+    loading: <span class="ty">boolean</span>;
+    error: <span class="ty">string</span> | <span class="kw">null</span>;
+    success: <span class="ty">boolean</span>;
+  };
+}
+
+<span class="cm">// Дискримінований union-тип — кожна дія має унікальний рядковий тип</span>
+<span class="kw">export type</span> <span class="ty">UsersAction</span> =
+  | { type: <span class="str">'FETCH_START'</span> }                                              <span class="cm">// Запит розпочато</span>
+  | { type: <span class="str">'FETCH_SUCCESS'</span>; payload: <span class="ty">PaginatedResponse</span>&lt;<span class="ty">User</span>&gt; }        <span class="cm">// Дані отримано</span>
+  | { type: <span class="str">'FETCH_ERROR'</span>; payload: <span class="ty">string</span> }                            <span class="cm">// Помилка запиту</span>
+  | { type: <span class="str">'SET_SEARCH'</span>; payload: <span class="ty">string</span> }                            <span class="cm">// Зміна пошуку</span>
+  | { type: <span class="str">'SET_SORT'</span>; payload: { sortBy: <span class="ty">string</span>; sortOrder: <span class="str">'asc'</span> | <span class="str">'desc'</span> } }
+  | { type: <span class="str">'SET_PAGE'</span>; payload: <span class="ty">number</span> }                              <span class="cm">// Зміна сторінки</span>
+  | { type: <span class="str">'SELECT_USER'</span>; payload: <span class="ty">User</span> | <span class="kw">null</span> }                     <span class="cm">// Вибір запису</span>
+  | { type: <span class="str">'CLEAR_STATUS'</span> };                                           <span class="cm">// Скидання статусу</span>
+
+<span class="cm">// Початковий стан — завантажується один раз при ініціалізації провайдера</span>
+<span class="kw">export const</span> initialState: <span class="ty">UsersState</span> = {
+  data: { users: [], selectedUser: <span class="kw">null</span>, meta: { total: <span class="num">0</span>, page: <span class="num">1</span>, limit: <span class="num">10</span>, totalPages: <span class="num">1</span> } },
+  ui: { search: <span class="str">''</span>, sortBy: <span class="str">'createdAt'</span>, sortOrder: <span class="str">'desc'</span>, page: <span class="num">1</span> },
+  status: { loading: <span class="kw">false</span>, error: <span class="kw">null</span>, success: <span class="kw">false</span> },
+};
+
+<span class="cm">// Чиста функція-редуктор: отримує стан і дію, повертає новий стан без мутацій</span>
+<span class="kw">export function</span> <span class="fn">usersReducer</span>(state: <span class="ty">UsersState</span>, action: <span class="ty">UsersAction</span>): <span class="ty">UsersState</span> {
+  <span class="kw">switch</span> (action.type) {
+    <span class="kw">case</span> <span class="str">'FETCH_START'</span>:      <span class="cm">// Показуємо індикатор завантаження</span>
+      <span class="kw">return</span> { ...state, status: { loading: <span class="kw">true</span>, error: <span class="kw">null</span>, success: <span class="kw">false</span> } };
+    <span class="kw">case</span> <span class="str">'FETCH_SUCCESS'</span>:    <span class="cm">// Зберігаємо список і метадані пагінації</span>
+      <span class="kw">return</span> {
+        ...state,
+        data: { ...state.data, users: action.payload.data, meta: action.payload.meta },
+        status: { loading: <span class="kw">false</span>, error: <span class="kw">null</span>, success: <span class="kw">true</span> },
+      };
+    <span class="kw">case</span> <span class="str">'FETCH_ERROR'</span>:     <span class="cm">// Зберігаємо повідомлення помилки для відображення</span>
+      <span class="kw">return</span> { ...state, status: { loading: <span class="kw">false</span>, error: action.payload, success: <span class="kw">false</span> } };
+    <span class="kw">case</span> <span class="str">'SET_SEARCH'</span>:      <span class="cm">// При зміні пошуку скидаємо сторінку на першу</span>
+      <span class="kw">return</span> { ...state, ui: { ...state.ui, search: action.payload, page: <span class="num">1</span> } };
+    <span class="kw">case</span> <span class="str">'SET_SORT'</span>:        <span class="cm">// При зміні сортування теж скидаємо сторінку</span>
+      <span class="kw">return</span> { ...state, ui: { ...state.ui, ...action.payload, page: <span class="num">1</span> } };
+    <span class="kw">case</span> <span class="str">'SET_PAGE'</span>:
+      <span class="kw">return</span> { ...state, ui: { ...state.ui, page: action.payload } };
+    <span class="kw">case</span> <span class="str">'SELECT_USER'</span>:     <span class="cm">// Зберігаємо обраний запис для форми редагування</span>
+      <span class="kw">return</span> { ...state, data: { ...state.data, selectedUser: action.payload } };
+    <span class="kw">case</span> <span class="str">'CLEAR_STATUS'</span>:    <span class="cm">// Очищення після завершення операції</span>
+      <span class="kw">return</span> { ...state, status: { ...state.status, success: <span class="kw">false</span>, error: <span class="kw">null</span> } };
+    <span class="kw">default</span>:               <span class="cm">// Невідома дія — повертаємо стан незмінним</span>
+      <span class="kw">return</span> state;
+  }
+}</pre>
+
+  <h3>2. Провайдер стану</h3>
+<pre><span class="cm">// React Context API для передачі стану без prop drilling</span>
+<span class="kw">import</span> { createContext, useContext, useReducer, <span class="kw">type</span> <span class="ty">ReactNode</span> } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { usersReducer, initialState } <span class="kw">from</span> <span class="str">'./usersReducer'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">UsersState</span>, <span class="ty">UsersAction</span> } <span class="kw">from</span> <span class="str">'./usersReducer'</span>;
+
+<span class="cm">// Тип значення контексту — стан і функція dispatch для зміни стану</span>
+<span class="kw">interface</span> <span class="ty">UsersContextValue</span> {
+  state: <span class="ty">UsersState</span>;
+  dispatch: <span class="ty">React.Dispatch</span>&lt;<span class="ty">UsersAction</span>&gt;;
+}
+
+<span class="cm">// Ініціалізуємо контекст як null — захист від використання поза провайдером</span>
+<span class="kw">const</span> UsersContext = <span class="fn">createContext</span>&lt;<span class="ty">UsersContextValue</span> | <span class="kw">null</span>&gt;(<span class="kw">null</span>);
+
+<span class="cm">// Провайдер огортає дерево компонентів і надає їм доступ до стану</span>
+<span class="kw">export function</span> <span class="fn">UsersProvider</span>({ children }: { children: <span class="ty">ReactNode</span> }) {
+  <span class="cm">// useReducer поєднує редуктор з початковим станом — аналог Redux store</span>
+  <span class="kw">const</span> [state, dispatch] = <span class="fn">useReducer</span>(usersReducer, initialState);
+  <span class="kw">return</span> (
+    <span class="cm">// Передаємо стан і dispatch всім дочірнім компонентам через контекст</span>
+    &lt;<span class="ty">UsersContext.Provider</span> value={{ state, dispatch }}&gt;
+      {children}
+    &lt;/<span class="ty">UsersContext.Provider</span>&gt;
+  );
+}
+
+<span class="cm">// Кастомний хук для безпечного доступу до контексту з перевіркою</span>
+<span class="kw">export function</span> <span class="fn">useUsersContext</span>(): <span class="ty">UsersContextValue</span> {
+  <span class="kw">const</span> ctx = <span class="fn">useContext</span>(UsersContext);
+  <span class="cm">// Виключення при використанні хука поза деревом UsersProvider</span>
+  <span class="kw">if</span> (!ctx) <span class="kw">throw new</span> <span class="fn">Error</span>(<span class="str">'useUsersContext must be used within UsersProvider'</span>);
+  <span class="kw">return</span> ctx;
+}</pre>
+
+  <h3>3. Інкапсуляція бізнес-логіки в Custom Hook</h3>
+<pre><span class="kw">import</span> { useEffect, useCallback } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useDispatch, useSelector } <span class="kw">from</span> <span class="str">'react-redux'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">RootState</span>, <span class="ty">AppDispatch</span> } <span class="kw">from</span> <span class="str">'../store'</span>;
+<span class="kw">import</span> {
+  fetchUsers, createUserThunk, updateUserThunk, deleteUserThunk,
+} <span class="kw">from</span> <span class="str">'../store/usersSlice'</span>;
+<span class="kw">import</span> { setSearch, setSort, setPage } <span class="kw">from</span> <span class="str">'../store/uiSlice'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">CreateUserDto</span> } <span class="kw">from</span> <span class="str">'../types'</span>;
+
+<span class="kw">export function</span> <span class="fn">useUsers</span>() {
+  <span class="kw">const</span> dispatch = <span class="fn">useDispatch</span>&lt;<span class="ty">AppDispatch</span>&gt;();
+
+  <span class="kw">const</span> users       = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.users);
+  <span class="kw">const</span> meta        = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.meta);
+  <span class="kw">const</span> loading     = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.loading);
+  <span class="kw">const</span> error       = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.error);
+  <span class="kw">const</span> success     = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.success);
+  <span class="kw">const</span> selectedUser = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.selectedUser);
+  <span class="kw">const</span> search      = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.search);
+  <span class="kw">const</span> sortBy      = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.sortBy);
+  <span class="kw">const</span> sortOrder   = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.sortOrder);
+  <span class="kw">const</span> page        = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.page);
+
+  <span class="cm">// useCallback мемоізує функцію — перестворюється лише при зміні залежностей</span>
+  <span class="kw">const</span> load = <span class="fn">useCallback</span>(() =&gt; {
+    <span class="cm">// Збираємо всі UI-параметри і відправляємо єдиний запит до API</span>
+    <span class="fn">dispatch</span>(<span class="fn">fetchUsers</span>({ search, sortBy, sortOrder, page, limit: <span class="num">10</span> }));
+  }, [dispatch, search, sortBy, sortOrder, page]);
+
+  <span class="cm">// Автоматично завантажуємо список при зміні будь-якого параметра фільтрації</span>
+  <span class="fn">useEffect</span>(() =&gt; { <span class="fn">load</span>(); }, [load]);
+
+  <span class="cm">// Диспетчеризуємо UI-дії напряму до store — без звернення до API</span>
+  <span class="kw">const</span> handleSearch = (val: <span class="ty">string</span>) =&gt; <span class="fn">dispatch</span>(<span class="fn">setSearch</span>(val));
+  <span class="kw">const</span> handleSort = (col: <span class="ty">string</span>) =&gt; {
+    <span class="cm">// Якщо клікнули по вже активному полю — інвертуємо напрям сортування</span>
+    <span class="kw">if</span> (col === sortBy) {
+      <span class="fn">dispatch</span>(<span class="fn">setSort</span>({ sortBy: col, sortOrder: sortOrder === <span class="str">'asc'</span> ? <span class="str">'desc'</span> : <span class="str">'asc'</span> }));
+    } <span class="kw">else</span> {
+      <span class="cm">// Нове поле — починаємо з висхідного порядку</span>
+      <span class="fn">dispatch</span>(<span class="fn">setSort</span>({ sortBy: col, sortOrder: <span class="str">'asc'</span> }));
+    }
+  };
+  <span class="kw">const</span> handlePage = (p: <span class="ty">number</span>) =&gt; <span class="fn">dispatch</span>(<span class="fn">setPage</span>(p));
+
+  <span class="cm">// CRUD + інвалідація: .unwrap() кидає виключення при rejected thunk</span>
+  <span class="kw">const</span> handleCreate = <span class="kw">async</span> (data: <span class="ty">CreateUserDto</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">createUserThunk</span>(data)).<span class="fn">unwrap</span>();
+    <span class="fn">load</span>(); <span class="cm">// Оновлюємо список після успішного створення</span>
+  };
+  <span class="kw">const</span> handleUpdate = <span class="kw">async</span> (id: <span class="ty">number</span>, data: <span class="ty">CreateUserDto</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">updateUserThunk</span>({ id, data })).<span class="fn">unwrap</span>();
+    <span class="fn">load</span>(); <span class="cm">// Оновлюємо список після успішного редагування</span>
+  };
+  <span class="kw">const</span> handleDelete = <span class="kw">async</span> (id: <span class="ty">number</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">deleteUserThunk</span>(id)).<span class="fn">unwrap</span>();
+    <span class="fn">load</span>(); <span class="cm">// Оновлюємо список після успішного видалення</span>
+  };
+
+  <span class="cm">// Повертаємо все необхідне для компонентів — єдина точка доступу до стану</span>
+  <span class="kw">return</span> {
+    users, meta, loading, error, success, selectedUser,
+    search, sortBy, sortOrder, page,
+    handleSearch, handleSort, handlePage,
+    handleCreate, handleUpdate, handleDelete,
+    reload: load,
+  };
+}</pre>
+
+  <h3>4. «Чистий» UI-компонент</h3>
+<pre><span class="cm">// Сторінка отримує всі дані через хук — жодних прямих звернень до API</span>
+<span class="kw">export function</span> <span class="fn">UsersPage</span>() {
+  <span class="cm">// Деструктуруємо лише те, що потрібно цьому компоненту</span>
+  <span class="kw">const</span> {
+    users, meta, loading, error, success,
+    page, handlePage, handleCreate, handleUpdate, handleDelete,
+  } = <span class="fn">useUsers</span>();
+
+  <span class="cm">// Локальний стан лише для UI-деталей (яку форму показати, який запис видалити)</span>
+  <span class="kw">const</span> [departments, setDepartments] = <span class="fn">useState</span>&lt;<span class="ty">Department</span>[]&gt;([]);
+  <span class="kw">const</span> [editUser, setEditUser]     = <span class="fn">useState</span>&lt;<span class="ty">User</span> | <span class="kw">null</span>&gt;(<span class="kw">null</span>);
+  <span class="kw">const</span> [deleteUser, setDeleteUser] = <span class="fn">useState</span>&lt;<span class="ty">User</span> | <span class="kw">null</span>&gt;(<span class="kw">null</span>);
+  <span class="kw">const</span> [formMode, setFormMode]     = <span class="fn">useState</span>&lt;<span class="str">'create'</span> | <span class="str">'edit'</span>&gt;(<span class="str">'create'</span>);
+
+  <span class="cm">// Завантажуємо список відділів один раз при монтуванні компонента</span>
+  <span class="fn">useEffect</span>(() =&gt; { <span class="fn">getDepartments</span>().<span class="fn">then</span>(setDepartments).<span class="fn">catch</span>(() =&gt; {}); }, []);
+
+  <span class="cm">// Єдиний обробник форми — режим визначається через formMode</span>
+  <span class="kw">const</span> handleSubmit = <span class="kw">async</span> (data: <span class="ty">CreateUserDto</span>) =&gt; {
+    <span class="kw">if</span> (formMode === <span class="str">'edit'</span> &amp;&amp; editUser) {
+      <span class="kw">await</span> <span class="fn">handleUpdate</span>(editUser.id, data); <span class="cm">// Передаємо id запису для оновлення</span>
+    } <span class="kw">else</span> {
+      <span class="kw">await</span> <span class="fn">handleCreate</span>(data);
+    }
+    <span class="fn">setEditUser</span>(<span class="kw">null</span>); <span class="fn">setFormMode</span>(<span class="str">'create'</span>); <span class="cm">// Скидаємо форму після збереження</span>
+  };
+
+  <span class="cm">// Компонент лише рендерить — вся логіка керування даними у хуку useUsers</span>
+  <span class="kw">return</span> (
+    &lt;<span class="ty">div</span> style={pageWrapper}&gt;
+      &lt;<span class="ty">FilterPanel</span> /&gt;          {/* Підключений до store через useDispatch */}
+      &lt;<span class="ty">UserList</span>
+        users={users} loading={loading} error={error} success={success}
+        onEdit={openEdit} onDelete={openDelete}
+      /&gt;
+      &lt;<span class="ty">Pagination</span>
+        page={page} totalPages={meta.totalPages}
+        total={meta.total} limit={meta.limit} onPageChange={handlePage}
+      /&gt;
+      &lt;<span class="ty">UserForm</span>
+        initial={editUser} departments={departments}
+        onSubmit={handleSubmit} onCancel={cancelForm}
+      /&gt;
+    &lt;/<span class="ty">div</span>&gt;
+  );
+}</pre>
+
+  <div class="figure">
+    <img src="images/diagram1.png" alt="Діаграма компонентів" style="max-width:100%; border:1px solid #ddd; border-radius:4px;" />
+    <div class="figure-caption">Рис. 1.1 — Діаграма компонентів клієнтського застосунку з керуванням станом</div>
+  </div>
+
+  <div class="figure">
+    <img src="images/diagram2.png" alt="Потік даних" style="max-width:100%; border:1px solid #ddd; border-radius:4px;" />
+    <div class="figure-caption">Рис. 1.2 — Потік даних у клієнтському застосунку</div>
+  </div>
+</div>
+
+<!-- ЗАВДАННЯ 2 -->
+<div class="page">
+  <p class="task-heading">
+    2. (<em>Централізоване керування станом бекенду</em>) На основі архітектури,
+    реалізованої в попередній практичній роботі, а також з урахуванням
+    доопрацювань завдання 1, необхідно реалізувати нову версію клієнтської
+    частини вебзастосунку з використанням Redux Toolkit як централізованого
+    засобу керування станом.
+  </p>
+  <p class="task-heading">
+    <strong>1</strong> &nbsp; Реалізуйте централізоване керування станом для адміністративного
+    модуля роботи з користувачами. Застосунок повинен підтримувати отримання списку
+    користувачів із сервера, створення, редагування, видалення, пошук за іменем або
+    email, сортування та пагінацію. У Redux store необхідно виділити щонайменше
+    slice для користувачів і slice для параметрів інтерфейсу. Після оновлення
+    сторінки повинні відновлюватися поточний пошуковий запит і номер сторінки.
+  </p>
+
+  <h3>1. Конфігурація єдиного джерела істини</h3>
+<pre><span class="cm">// configureStore автоматично підключає Redux DevTools і thunk middleware</span>
+<span class="kw">import</span> { configureStore } <span class="kw">from</span> <span class="str">'@reduxjs/toolkit'</span>;
+<span class="kw">import</span> usersReducer <span class="kw">from</span> <span class="str">'./usersSlice'</span>; <span class="cm">// Відповідає за дані користувачів</span>
+<span class="kw">import</span> uiReducer <span class="kw">from</span> <span class="str">'./uiSlice'</span>;       <span class="cm">// Відповідає за параметри інтерфейсу</span>
+
+<span class="kw">export const</span> store = <span class="fn">configureStore</span>({
+  reducer: {
+    users: usersReducer, <span class="cm">// s.users — список, метадані, статуси запитів</span>
+    ui: uiReducer,       <span class="cm">// s.ui — пошук, сортування, поточна сторінка</span>
+  },
+});
+
+<span class="cm">// Типи для типізованих хуків useSelector і useDispatch</span>
+<span class="kw">export type</span> <span class="ty">RootState</span> = <span class="ty">ReturnType</span>&lt;<span class="kw">typeof</span> store.getState&gt;;
+<span class="kw">export type</span> <span class="ty">AppDispatch</span> = <span class="kw">typeof</span> store.dispatch;</pre>
+
+  <h3>2. Стан інтерфейсу та Storage</h3>
+<pre><span class="kw">import</span> { createSlice, <span class="kw">type</span> <span class="ty">PayloadAction</span> } <span class="kw">from</span> <span class="str">'@reduxjs/toolkit'</span>;
+
+<span class="cm">// Ключ для збереження у localStorage — дозволяє відновити стан після F5</span>
+<span class="kw">const</span> STORAGE_KEY = <span class="str">'users_ui_params'</span>;
+
+<span class="kw">interface</span> <span class="ty">UiState</span> {
+  search: <span class="ty">string</span>; sortBy: <span class="ty">string</span>; sortOrder: <span class="str">'asc'</span> | <span class="str">'desc'</span>; page: <span class="ty">number</span>;
+}
+
+<span class="cm">// Зчитуємо збережені параметри з localStorage при старті застосунку</span>
+<span class="kw">function</span> <span class="fn">loadFromStorage</span>(): <span class="ty">Partial</span>&lt;<span class="ty">UiState</span>&gt; {
+  <span class="kw">try</span> {
+    <span class="kw">const</span> raw = localStorage.<span class="fn">getItem</span>(STORAGE_KEY);
+    <span class="kw">return</span> raw ? (<span class="ty">JSON</span>.<span class="fn">parse</span>(raw) <span class="kw">as</span> <span class="ty">Partial</span>&lt;<span class="ty">UiState</span>&gt;) : {};
+  } <span class="kw">catch</span> { <span class="kw">return</span> {}; } <span class="cm">// localStorage може бути недоступний (приватний режим)</span>
+}
+
+<span class="cm">// Зберігаємо лише search і page — сортування скидається навмисно</span>
+<span class="kw">function</span> <span class="fn">saveToStorage</span>(state: <span class="ty">UiState</span>) {
+  <span class="kw">try</span> {
+    localStorage.<span class="fn">setItem</span>(STORAGE_KEY, <span class="ty">JSON</span>.<span class="fn">stringify</span>({ search: state.search, page: state.page }));
+  } <span class="kw">catch</span> {}
+}
+
+<span class="cm">// Ініціалізуємо стан: відновлюємо search і page зі сховища, решту — за замовчуванням</span>
+<span class="kw">const</span> saved = <span class="fn">loadFromStorage</span>();
+<span class="kw">const</span> initialState: <span class="ty">UiState</span> = {
+  search: saved.search ?? <span class="str">''</span>, sortBy: <span class="str">'createdAt'</span>, sortOrder: <span class="str">'desc'</span>, page: saved.page ?? <span class="num">1</span>,
+};
+
+<span class="cm">// createSlice генерує редуктор і action creators одночасно</span>
+<span class="kw">const</span> uiSlice = <span class="fn">createSlice</span>({
+  name: <span class="str">'ui'</span>,
+  initialState,
+  reducers: {
+    <span class="fn">setSearch</span>(state, action: <span class="ty">PayloadAction</span>&lt;<span class="ty">string</span>&gt;) {
+      state.search = action.payload;
+      state.page = <span class="num">1</span>;            <span class="cm">// Скидаємо на першу сторінку при новому пошуку</span>
+      <span class="fn">saveToStorage</span>(state);     <span class="cm">// Синхронно зберігаємо у localStorage</span>
+    },
+    <span class="fn">setSort</span>(state, action: <span class="ty">PayloadAction</span>&lt;{ sortBy: <span class="ty">string</span>; sortOrder: <span class="str">'asc'</span> | <span class="str">'desc'</span> }&gt;) {
+      state.sortBy = action.payload.sortBy;
+      state.sortOrder = action.payload.sortOrder;
+      state.page = <span class="num">1</span>;            <span class="cm">// Зміна сортування — повертаємось на першу сторінку</span>
+    },
+    <span class="fn">setPage</span>(state, action: <span class="ty">PayloadAction</span>&lt;<span class="ty">number</span>&gt;) {
+      state.page = action.payload; <span class="fn">saveToStorage</span>(state);
+    },
+    <span class="fn">resetFilters</span>(state) {        <span class="cm">// Повне скидання всіх фільтрів до початкових</span>
+      state.search = <span class="str">''</span>; state.sortBy = <span class="str">'createdAt'</span>; state.sortOrder = <span class="str">'desc'</span>;
+      state.page = <span class="num">1</span>; <span class="fn">saveToStorage</span>(state);
+    },
+  },
+});
+
+<span class="kw">export const</span> { setSearch, setSort, setPage, resetFilters } = uiSlice.actions;
+<span class="kw">export default</span> uiSlice.reducer;</pre>
+</div>
+
+<!-- ЗАВДАННЯ 2 — продовження -->
+<div class="page">
+  <h3>3. Асинхронна логіка (Async Thunks &amp; ExtraReducers)</h3>
+<pre><span class="kw">import</span> { createSlice, createAsyncThunk } <span class="kw">from</span> <span class="str">'@reduxjs/toolkit'</span>;
+<span class="cm">// Імпортуємо функції з окремого API-модуля — слайс не знає про fetch/axios</span>
+<span class="kw">import</span> { getUsers, createUser, updateUser, deleteUser } <span class="kw">from</span> <span class="str">'../api/userApi'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">User</span>, <span class="ty">UsersQueryParams</span>, <span class="ty">CreateUserDto</span> } <span class="kw">from</span> <span class="str">'../types'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">PaginatedMeta</span> } <span class="kw">from</span> <span class="str">'../state/usersReducer'</span>;
+
+<span class="cm">// Стан цього слайсу: дані користувачів + статуси всіх CRUD-операцій</span>
+<span class="kw">interface</span> <span class="ty">UsersSliceState</span> {
+  users: <span class="ty">User</span>[]; selectedUser: <span class="ty">User</span> | <span class="kw">null</span>; meta: <span class="ty">PaginatedMeta</span>;
+  loading: <span class="ty">boolean</span>; error: <span class="ty">string</span> | <span class="kw">null</span>; success: <span class="ty">boolean</span>;
+}
+
+<span class="cm">// createAsyncThunk генерує 3 action'и автоматично:
+// fetchUsers.pending → показати лоадер
+// fetchUsers.fulfilled → зберегти дані
+// fetchUsers.rejected → зберегти помилку</span>
+<span class="kw">export const</span> fetchUsers = <span class="fn">createAsyncThunk</span>(
+  <span class="str">'users/fetchUsers'</span>,
+  <span class="kw">async</span> (params: <span class="ty">UsersQueryParams</span>) =&gt; { <span class="kw">const</span> result = <span class="kw">await</span> <span class="fn">getUsers</span>(params); <span class="kw">return</span> result; }
+);
+<span class="kw">export const</span> createUserThunk = <span class="fn">createAsyncThunk</span>(
+  <span class="str">'users/createUser'</span>, <span class="kw">async</span> (data: <span class="ty">CreateUserDto</span>) =&gt; <span class="kw">await</span> <span class="fn">createUser</span>(data)
+);
+<span class="kw">export const</span> updateUserThunk = <span class="fn">createAsyncThunk</span>(
+  <span class="str">'users/updateUser'</span>,
+  <span class="kw">async</span> ({ id, data }: { id: <span class="ty">number</span>; data: <span class="ty">CreateUserDto</span> }) =&gt; <span class="kw">await</span> <span class="fn">updateUser</span>(id, data)
+);
+<span class="kw">export const</span> deleteUserThunk = <span class="fn">createAsyncThunk</span>(
+  <span class="str">'users/deleteUser'</span>,
+  <span class="cm">// Повертаємо id, щоб extraReducers знав який запис видалено</span>
+  <span class="kw">async</span> (id: <span class="ty">number</span>) =&gt; { <span class="kw">await</span> <span class="fn">deleteUser</span>(id); <span class="kw">return</span> id; }
+);
+
+<span class="kw">const</span> usersSlice = <span class="fn">createSlice</span>({
+  name: <span class="str">'users'</span>,
+  initialState,
+  reducers: {
+    <span class="cm">// Синхронні дії для локального UI-стану (не потребують запиту до API)</span>
+    <span class="fn">selectUser</span>(state, action) { state.selectedUser = action.payload; },
+    <span class="fn">clearStatus</span>(state) { state.success = <span class="kw">false</span>; state.error = <span class="kw">null</span>; },
+  },
+  <span class="cm">// extraReducers перехоплює дії від thunk-ів і оновлює стан відповідно</span>
+  extraReducers: (builder) =&gt; {
+    builder
+      .<span class="fn">addCase</span>(fetchUsers.pending, (state) =&gt; {
+        <span class="cm">// Запит розпочато — показуємо індикатор завантаження</span>
+        state.loading = <span class="kw">true</span>; state.error = <span class="kw">null</span>; state.success = <span class="kw">false</span>;
+      })
+      .<span class="fn">addCase</span>(fetchUsers.fulfilled, (state, action) =&gt; {
+        state.loading = <span class="kw">false</span>;
+        state.users = action.payload.data; <span class="cm">// Зберігаємо список</span>
+        state.meta = action.payload.meta;
+        state.success = <span class="kw">true</span>;
+      })
+      .<span class="fn">addCase</span>(fetchUsers.rejected, (state, action) =&gt; {
+        state.loading = <span class="kw">false</span>;
+        state.error = action.error.message ?? <span class="str">'Помилка завантаження'</span>; <span class="cm">// Зберігаємо помилку</span>
+        state.success = <span class="kw">false</span>;
+      })
+      .<span class="fn">addCase</span>(createUserThunk.pending, (state) =&gt; { state.loading = <span class="kw">true</span>; state.error = <span class="kw">null</span>; })
+      .<span class="fn">addCase</span>(createUserThunk.fulfilled, (state) =&gt; { state.loading = <span class="kw">false</span>; state.success = <span class="kw">true</span>; })
+      .<span class="fn">addCase</span>(createUserThunk.rejected, (state, action) =&gt; {
+        state.loading = <span class="kw">false</span>; state.error = action.error.message ?? <span class="str">'Помилка створення'</span>;
+      })
+      .<span class="fn">addCase</span>(updateUserThunk.pending, (state) =&gt; { state.loading = <span class="kw">true</span>; state.error = <span class="kw">null</span>; })
+      .<span class="fn">addCase</span>(updateUserThunk.fulfilled, (state) =&gt; {
+        state.loading = <span class="kw">false</span>; state.success = <span class="kw">true</span>; state.selectedUser = <span class="kw">null</span>;
+      })
+      .<span class="fn">addCase</span>(updateUserThunk.rejected, (state, action) =&gt; {
+        state.loading = <span class="kw">false</span>; state.error = action.error.message ?? <span class="str">'Помилка оновлення'</span>;
+      })
+      .<span class="fn">addCase</span>(deleteUserThunk.pending, (state) =&gt; { state.loading = <span class="kw">true</span>; state.error = <span class="kw">null</span>; })
+      .<span class="fn">addCase</span>(deleteUserThunk.fulfilled, (state) =&gt; { state.loading = <span class="kw">false</span>; state.success = <span class="kw">true</span>; })
+      .<span class="fn">addCase</span>(deleteUserThunk.rejected, (state, action) =&gt; {
+        state.loading = <span class="kw">false</span>; state.error = action.error.message ?? <span class="str">'Помилка видалення'</span>;
+      });
+  },
+});
+
+<span class="kw">export const</span> { selectUser, clearStatus } = usersSlice.actions;
+<span class="kw">export default</span> usersSlice.reducer;</pre>
+
+  <h3>4. Підключений UI-компонент</h3>
+<pre><span class="kw">import</span> { useEffect, useCallback } <span class="kw">from</span> <span class="str">'react'</span>;
+<span class="kw">import</span> { useDispatch, useSelector } <span class="kw">from</span> <span class="str">'react-redux'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">RootState</span>, <span class="ty">AppDispatch</span> } <span class="kw">from</span> <span class="str">'../store'</span>;
+<span class="kw">import</span> {
+  fetchUsers, createUserThunk, updateUserThunk, deleteUserThunk,
+} <span class="kw">from</span> <span class="str">'../store/usersSlice'</span>;
+<span class="kw">import</span> { setSearch, setSort, setPage } <span class="kw">from</span> <span class="str">'../store/uiSlice'</span>;
+<span class="kw">import</span> <span class="kw">type</span> { <span class="ty">CreateUserDto</span> } <span class="kw">from</span> <span class="str">'../types'</span>;
+
+<span class="kw">export function</span> <span class="fn">useUsers</span>() {
+  <span class="kw">const</span> dispatch = <span class="fn">useDispatch</span>&lt;<span class="ty">AppDispatch</span>&gt;();
+
+  <span class="cm">// Селектори: читання стану з Redux store</span>
+  <span class="kw">const</span> users       = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.users);
+  <span class="kw">const</span> meta        = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.meta);
+  <span class="kw">const</span> loading     = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.loading);
+  <span class="kw">const</span> error       = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.error);
+  <span class="kw">const</span> success     = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.success);
+  <span class="kw">const</span> selectedUser = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.users.selectedUser);
+  <span class="kw">const</span> search      = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.search);
+  <span class="kw">const</span> sortBy      = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.sortBy);
+  <span class="kw">const</span> sortOrder   = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.sortOrder);
+  <span class="kw">const</span> page        = <span class="fn">useSelector</span>((s: <span class="ty">RootState</span>) =&gt; s.ui.page);
+
+  <span class="cm">// Завантаження при зміні будь-якого UI-параметра</span>
+  <span class="kw">const</span> load = <span class="fn">useCallback</span>(() =&gt; {
+    <span class="fn">dispatch</span>(<span class="fn">fetchUsers</span>({ search, sortBy, sortOrder, page, limit: <span class="num">10</span> }));
+  }, [dispatch, search, sortBy, sortOrder, page]);
+
+  <span class="fn">useEffect</span>(() =&gt; { <span class="fn">load</span>(); }, [load]);
+
+  <span class="kw">const</span> handleSearch = (val: <span class="ty">string</span>) =&gt; <span class="fn">dispatch</span>(<span class="fn">setSearch</span>(val));
+  <span class="kw">const</span> handleSort = (col: <span class="ty">string</span>) =&gt; {
+    <span class="kw">if</span> (col === sortBy) {
+      <span class="fn">dispatch</span>(<span class="fn">setSort</span>({ sortBy: col, sortOrder: sortOrder === <span class="str">'asc'</span> ? <span class="str">'desc'</span> : <span class="str">'asc'</span> }));
+    } <span class="kw">else</span> { <span class="fn">dispatch</span>(<span class="fn">setSort</span>({ sortBy: col, sortOrder: <span class="str">'asc'</span> })); }
+  };
+  <span class="kw">const</span> handlePage = (p: <span class="ty">number</span>) =&gt; <span class="fn">dispatch</span>(<span class="fn">setPage</span>(p));
+
+  <span class="cm">// CRUD та Інвалідація: після кожної операції перезавантажуємо список</span>
+  <span class="kw">const</span> handleCreate = <span class="kw">async</span> (data: <span class="ty">CreateUserDto</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">createUserThunk</span>(data)).<span class="fn">unwrap</span>(); <span class="fn">load</span>();
+  };
+  <span class="kw">const</span> handleUpdate = <span class="kw">async</span> (id: <span class="ty">number</span>, data: <span class="ty">CreateUserDto</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">updateUserThunk</span>({ id, data })).<span class="fn">unwrap</span>(); <span class="fn">load</span>();
+  };
+  <span class="kw">const</span> handleDelete = <span class="kw">async</span> (id: <span class="ty">number</span>) =&gt; {
+    <span class="kw">await</span> <span class="fn">dispatch</span>(<span class="fn">deleteUserThunk</span>(id)).<span class="fn">unwrap</span>(); <span class="fn">load</span>();
+  };
+
+  <span class="kw">return</span> {
+    users, meta, loading, error, success, selectedUser,
+    search, sortBy, sortOrder, page,
+    handleSearch, handleSort, handlePage,
+    handleCreate, handleUpdate, handleDelete, reload: load,
+  };
+}</pre>
+
+</div>
+
+<!-- ВИСНОВОК -->
+<div class="page">
+  <h3>Висновок</h3>
+
+  <p>
+    У ході виконання практичної роботи № 5 було реалізовано розширення архітектури
+    клієнтського вебзастосунку шляхом введення явного рівня керування станом
+    інтерфейсу та даних.
+  </p>
+
+  <p>
+    У межах першого завдання було формалізовано структуру стану застосунку у вигляді
+    об'єкта з трьома секціями: <em>data</em> (користувачі, вибраний запис, метадані
+    пагінації), <em>ui</em> (параметри пошуку, сортування, поточна сторінка) та
+    <em>status</em> (прапорці завантаження, помилки та успішного завершення операції).
+    Реалізовано чистий редуктор <em>usersReducer</em>, що обробляє всі можливі події
+    без побічних ефектів, провайдер стану <em>UsersProvider</em> на основі
+    <em>useReducer</em> та <em>useContext</em>, а також кастомний хук
+    <em>useUsersContext</em> для інкапсуляції доступу до контексту. Компоненти
+    подання залишаються «чистими» — вони лише відображають отримані дані і не
+    містять логіки роботи з API.
+  </p>
+
+  <p>
+    У межах другого завдання (Варіант 1) реалізовано централізоване керування станом
+    адміністративного модуля роботи з користувачами засобами Redux Toolkit.
+    Сконфігуровано єдиний Redux store за допомогою <em>configureStore</em> з двома
+    слайсами: <em>usersSlice</em> — для зберігання колекції користувачів та статусів
+    запитів, і <em>uiSlice</em> — для параметрів інтерфейсу (пошук, сортування,
+    пагінація). Для кожної CRUD-операції створено асинхронний thunk на основі
+    <em>createAsyncThunk</em>, що автоматично генерує дії <em>pending</em>,
+    <em>fulfilled</em> та <em>rejected</em>. Реалізовано збереження пошукового
+    запиту та номера сторінки у <em>localStorage</em> з автоматичним відновленням
+    після перезавантаження сторінки. Після кожної операції створення, редагування або
+    видалення список користувачів автоматично оновлюється без ручного перезавантаження.
+  </p>
+
+  <p>
+    Усі компоненти подання отримують дані виключно через хук <em>useUsers</em>, який
+    використовує <em>useSelector</em> для читання стану зі store та <em>useDispatch</em>
+    для відправки дій. Такий підхід забезпечує єдине джерело істини, передбачувану
+    поведінку інтерфейсу та спрощує подальше масштабування застосунку.
+  </p>
+</div>
+
+</body>
+</html>
